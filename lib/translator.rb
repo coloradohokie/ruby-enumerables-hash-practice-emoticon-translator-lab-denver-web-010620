@@ -1,4 +1,5 @@
 require "yaml"
+<<<<<<< HEAD
 
 
 def load_library(path)
@@ -33,5 +34,31 @@ def get_english_meaning(path, j_emoticon)
     return "Sorry, that emoticon was not found"
   end
 
+=======
+
+
+def load_library(path)
+  emoticon_library = YAML.load_file(path)
+end
+
+def get_japanese_emoticon(w_emoticon)
+  emoticon_library = load_library("./lib/emoticons.yml")
+  emoticon_library.each do |k,v|
+    if v[0] == w_emoticon
+      return v[1]
+    end
+  end
+  return "Sorry, unknown emoticon"
+end
+
+def get_english_meaning(j_emoticon)
+  emoticon_library = load_library("./lib/emoticons.yml")
+  emoticon_library.each do |k, v|
+    if v[1] == j_emoticon
+      return k
+    end #if
+  end #emoticon_library.each
+  return "Sorry, unkonwn emoticon"
+>>>>>>> 7039edcf20f2c8573b74f74d191fa0b617580858
 end #method
 
